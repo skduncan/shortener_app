@@ -1,0 +1,11 @@
+    <%= form_for(@shortlink, url: newlink_path) do |f| %>
+      <%= render 'shared/error_messages' %>
+    
+      <%= f.label :shorturl %>
+      <%= f.text_field :shorturl, class: 'form-control' %>
+      
+      <%= f.label :longurl %>
+      <%= f.text_field :longurl, class: 'form-control' %>
+
+      <%= f.submit "Create my shortened link", class: "btn btn-primary" %>
+    <% end %>
