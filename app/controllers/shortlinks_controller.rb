@@ -37,14 +37,6 @@ class ShortlinksController < ApplicationController
     end
   end
   
-  def redirect
-    @link = Shortlink.find_by(shorturl: params[:shortul])
-    if @link
-      redirect_to @link.longurl
-    else
-        raise ActionController::RoutingError.new('not found')
-      end 
-  end
   
   private
     def shortlink_params
