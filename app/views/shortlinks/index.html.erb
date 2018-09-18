@@ -8,3 +8,24 @@
     </li>
   <% end %>
 </ul>
+
+<table class="table">   
+  <thead class="thead-dark">     
+  <tr>       
+    <th scope="col">Shorturl</th>       
+    <th scope="col">Longurl</th>       
+    <th scope="col">View Url</th>       
+    <th scope="col">Delete</th>     
+    </tr>   
+    </thead>   
+    <tbody>     
+    <% @shortlinks.each do |shortlink| %>       
+    <tr>         
+    <td><%= shortlink.shorturl %></td>         
+    <td><%= shortlink.longurl %></td>         
+    <td><%= link_to shortlink.shorturl, 'View' %></td>         
+    <td><button class="btn btn-danger">Delete</button></td>       
+    </tr>     
+    <% end %>
+  </tbody>
+</table>
