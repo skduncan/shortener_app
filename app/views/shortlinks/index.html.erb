@@ -4,7 +4,7 @@
 <ul class="users">
   <% @shortlinks.each do |shortlink| %>
     <li>
-      <%= shortlink.shorturl %>, <%= shortlink.longurl %>
+      <%= shortlink.shorturl %>, <%= shortlink.longurl %>, <%= link_to shortlink.shorturl, shortlink.longurl %>
     </li>
   <% end %>
 </ul>
