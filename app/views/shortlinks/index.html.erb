@@ -1,0 +1,10 @@
+<% provide(:title, 'All Shortlinks') %>
+<h1>All Shortlinks</h1>
+
+<ul class="users">
+  <% @shortlinks.each do |shortlink| %>
+    <li>
+      <%= shortlink.shorturl %>, <%= shortlink.longurl %>
+    </li>
+  <% end %>
+</ul>
