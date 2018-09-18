@@ -29,7 +29,7 @@ class ShortlinksController < ApplicationController
     
     if @shortlink.save
       flash[:success] = "New Short Link has been generated"
-      redirect_to @shortlink
+      redirect_to root_path
     else
       render 'new'
     end
