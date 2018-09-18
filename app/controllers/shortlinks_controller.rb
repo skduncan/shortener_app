@@ -5,7 +5,18 @@ class ShortlinksController < ApplicationController
   end
   
   def index
-    @shortlinks = Shortlink.all
+    @shortlinks = Shortlink.paginate(page:params[:page])
+  end
+  
+  def redirect
+    @shortlink = Shortlink.find_by(shorturl: params[:shorturl])
+    
+    if @shortlink
+      redirect_to @shortlink.longurl
+    else
+      flash[:error] = "This does not exist"
+      redirect_to '/'
+    end 
   end 
   
   def show
@@ -31,12 +42,18 @@ class ShortlinksController < ApplicationController
   def update
     @shortlink = Shortlink.find(params[:id])
     if @shortlink.update_attributes(shortlink_params)
-      # Handle a successful update.
+      flash[:success] = "Short link updated"
+      redirect_to root_path
     else
       render 'edit'
     end
   end
   
+  def destroy
+      Shortlink.find(params[:id]).destroy
+      flash[:success] = "User deleted"
+      redirect_to root_path
+  end
   
   private
     def shortlink_params

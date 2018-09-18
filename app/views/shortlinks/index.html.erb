@@ -1,31 +1,42 @@
 <% provide(:title, 'All Shortlinks') %>
-<h1>All Shortlinks</h1>
 
-<ul class="users">
-  <% @shortlinks.each do |shortlink| %>
-    <li>
-      <%= shortlink.shorturl %>, <%= shortlink.longurl %>, <%= link_to shortlink.shorturl, shortlink.longurl %>
-    </li>
-  <% end %>
-</ul>
+<div class="center jumbotron">
+  <h1>Shortlink Generator</h1>
+
+  <h2>
+    This is the home page of the Shortlink Generator by Sam Duncan
+  </h2>
+  
+  <%= link_to "Create a New Shortlink Here!", newlink_path, class: "btn btn-lg btn-primary" %>
+
+</div>
+
+<h1>All Shortlinks</h1>
 
 <table class="table">   
   <thead class="thead-dark">     
-  <tr>       
-    <th scope="col">Shorturl</th>       
-    <th scope="col">Longurl</th>       
-    <th scope="col">View Url</th>       
-    <th scope="col">Delete</th>     
+    <tr>       
+      <th scope="col">Short URL</th>       
+      <th scope="col">Long URL</th>       
+      <th scope="col">View URL</th>
+      <th scope="col">Edit URL</th>
+      <th scope="col">Delete</th> 
+      <th scope="col">SMS</th>
     </tr>   
-    </thead>   
-    <tbody>     
-    <% @shortlinks.each do |shortlink| %>       
-    <tr>         
-    <td><%= shortlink.shorturl %></td>         
-    <td><%= shortlink.longurl %></td>         
-    <td><%= link_to shortlink.shorturl, 'View' %></td>         
-    <td><button class="btn btn-danger">Delete</button></td>       
-    </tr>     
-    <% end %>
+  </thead>   
+  <tbody> 
+    <%= will_paginate %>
+      <% @shortlinks.each do |shortlink| %>       
+        <tr>         
+          <td><%= shortlink.shorturl %></td>         
+          <td><%= shortlink.longurl %></td>         
+          <td><a href="<%= shortlink.longurl %>" target="_blank">View</a></td>
+          <td><a href="<%= edit_shortlink_path(shortlink) %>">Edit</a></td>
+          <td><%= link_to "Delete", shortlink, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %></td>
+          <!--<td><button class="btn btn-danger">Delete</button></td>-->
+          <td><button class="btn btn-primary">Message Shortlink</button></td>
+        </tr>     
+      <% end %>
+    <%= will_paginate %>
   </tbody>
 </table>
