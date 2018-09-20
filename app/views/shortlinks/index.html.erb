@@ -29,11 +29,10 @@
       <% @shortlinks.each do |shortlink| %>       
         <tr>         
           <td><%= shortlink.shorturl %></td>         
-          <td><%= shortlink.longurl %></td>         
-          <td><a href="<%= shortlink.longurl %>" target="_blank">View</a></td>
+          <td><%= shortlink.longurl %></td>
+          <td><a href="<%= shortlink.shorturl %>" target="__blank">View</a></td>
           <td><a href="<%= edit_shortlink_path(shortlink) %>">Edit</a></td>
           <td><%= link_to "Delete", shortlink, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %></td>
-          <!--<td><button class="btn btn-danger">Delete</button></td>-->
           <td><button class="btn btn-primary">Message Shortlink</button></td>
         </tr>     
       <% end %>
