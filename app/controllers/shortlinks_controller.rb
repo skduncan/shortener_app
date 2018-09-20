@@ -10,7 +10,6 @@ class ShortlinksController < ApplicationController
   end
   
   def redirect
-    #@shortlink = Shortlink.find_by(shorturl: params[:shorturl])
     if @shortlink
       redirect_to @shortlink.longurl
     else
@@ -61,6 +60,6 @@ class ShortlinksController < ApplicationController
     end
     
     def set_shortlink
-      @shortlink = Shortlink.find_by(params[:shorturl])
+      @shortlink = Shortlink.find_by(shorturl: params[:shortlink])
     end 
 end
