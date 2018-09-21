@@ -68,7 +68,7 @@ GEM
     erubi (1.7.1)
     excon (0.62.0)
     execjs (2.7.0)
-    faraday (0.15.2)
+    faraday (0.15.3)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.25)
     fission (0.5.0)
@@ -220,9 +220,10 @@ GEM
     fog-vsphere (2.3.0)
       fog-core
       rbvmomi (~> 1.9)
-    fog-xenserver (0.3.0)
+    fog-xenserver (1.0.0)
       fog-core
       fog-xml
+      xmlrpc
     fog-xml (0.1.3)
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
@@ -343,7 +344,7 @@ GEM
       netrc (~> 0.8)
     ruby-progressbar (1.10.0)
     ruby_dep (1.5.0)
-    sass (3.5.7)
+    sass (3.6.0)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -375,7 +376,7 @@ GEM
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.2.0)
-    twilio-ruby (5.12.4)
+    twilio-ruby (5.13.0)
       faraday (~> 0.9)
       jwt (>= 1.5, <= 2.5)
       nokogiri (>= 1.6, < 2.0)
@@ -396,6 +397,7 @@ GEM
     websocket-extensions (0.1.3)
     will_paginate (3.1.6)
     xml-simple (1.1.5)
+    xmlrpc (0.3.0)
 
 PLATFORMS
   ruby

@@ -54,6 +54,14 @@ class ShortlinksController < ApplicationController
       redirect_to root_path
   end
   
+  def textmessage
+    @shortlink = Shortlink.find(params[:id])
+    message = "Here is your shortlink '#{@shortlink.shorturl}'"
+    TwilioTextMessenger.new(message).call
+    flash[:success] = "Message sent"
+    redirect_to root_path
+  end
+  
   private
     def shortlink_params
       params.require(:shortlink).permit(:shorturl, :longurl)
