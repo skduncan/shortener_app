@@ -33,8 +33,7 @@
           <td><a href="<%= shortlink.shorturl %>" target="__blank">View</a></td>
           <td><a href="<%= edit_shortlink_path(shortlink) %>">Edit</a></td>
           <td><%= link_to "Delete", shortlink, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %></td>
-          <td><%= link_to "Message", shortlink, method: :textmessage, class: "btn btn-primary" %></td>
-          <td><button class="btn btn-primary">Message Shortlink</button></td>
+          <td><%= link_to "Message", text_path, class: "btn btn-primary" %></td>
         </tr>     
       <% end %>
     <%= will_paginate %>

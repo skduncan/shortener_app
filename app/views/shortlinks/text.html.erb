@@ -1,0 +1,17 @@
+<% provide(:title, 'Message Shortlink') %>
+<% provide(:button_text, 'Send Message') %>
+<% provide(:form_path, text_path) %>
+
+<h1>Message shortlink</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for :phonenumber, url: yield(:form_path)  do |f| %>
+
+        <%= f.label :phonenumber %>
+        <%= f.text_field :phonenumber, class: 'form-control' %>
+        
+      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    <% end %>  
+  </div>
+</div>
