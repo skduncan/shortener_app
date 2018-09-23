@@ -55,20 +55,21 @@ class ShortlinksController < ApplicationController
   end
   
   def text
+    @shortlink = Shortlink.find(params[:shortid])
   end 
   
   def message
-    #@shortlink = Shortlink.find(params[:id])
-    @message = "Hi, check out this awesome website: "
-    @phonenumber = params[:phonenumber]
+    @shortlink = Shortlink.find(params[:phonenumber][:id])
+    @message = "Hi, check out this awesome website: #{request.base_url}/#{@shortlink.shorturl}"
+    phonenumber = params[:phonenumber][:phone]
     #TwilioTextMessenger.new(@message).call(@phonenumber)
     client = Twilio::REST::Client.new
     client.messages.create({
       from: "+15128293862",
-      to: @phonenumber,
-      body: @message
+      to: phonenumber,
+      body: @message,
     })
-    flash[:success] = "Message sent"
+    flash[:success] = "#{request.base_url}/#{@shortlink.shorturl}"
     redirect_to root_path
   end
   
