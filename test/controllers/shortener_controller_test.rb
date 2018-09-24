@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ShortenerControllerTest < ActionDispatch::IntegrationTest
   test "should get home" do
-    get shortener_home_url
+    get root_path
     assert_response :success
   end
 
