@@ -9,7 +9,7 @@ class TwilioTextMessenger
     client = Twilio::REST::Client.new
     client.messages.create({
       from: "+15128293862",
-      to: "+1#{phonenumber}",
+      to: phonenumber,
       body: @message
     })
   end

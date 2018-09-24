@@ -9,8 +9,8 @@
     <%= form_for :phonenumber, url: yield(:form_path)  do |f| %>
         <%= f.hidden_field :id, :value => @shortlink.id %>
     
-        <%= f.label 'phone number' %>
-        <%= f.text_field :phone, class: 'form-control' %>
+        <%= f.label 'Phone Number (Format should be in 0123456789)' %>
+        <%= f.text_field :phone, class: 'form-control', :pattern => '\d{10}' %>
         
       <%= f.submit yield(:button_text), class: "btn btn-primary" %>
     <% end %>  
